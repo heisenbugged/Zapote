@@ -1,0 +1,12 @@
+development:
+  bucket: etherpros
+  access_key_id: AKIAJ6L6AVJBLUDZNQXQ
+  secret_access_key: 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
+test:
+  bucket: etherpros
+  access_key_id: AKIAJ6L6AVJBLUDZNQXQ
+  secret_access_key: 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
+production:
+  bucket: quiz
+  access_key_id: AKIAJ6L6AVJBLUDZNQXQ
+  secret_access_key: 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

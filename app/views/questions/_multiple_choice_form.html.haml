@@ -1,0 +1,26 @@
+- if @question.class == MultipleChoiceQuestion
+  - question = @question
+- else
+  - question = MultipleChoiceQuestion.new
+  - question.choices.push(Choice.new)
+
+%h3 Multiple Choice Question
+= simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
+  = render "shared/error_messages", :target => [{:item => question}]
+
+  = f.input :title
+  %br/
+
+  Audio: #{ f.file_field :audio }
+  %br/
+  
+  %h4 Questions
+  #choices
+    = render :partial => '/questions/choice', :collection => question.choices
+  %a#add_question Add Question
+  -#= link_to_function "Add a choice" do |page|
+    - page.insert_html :bottom, :choices, :partial => 'choice', :object => Choice.new
+    
+  %br/
+  %br/
+  = f.submit "Create Multiple Choice Question", :class => "green-rounded"

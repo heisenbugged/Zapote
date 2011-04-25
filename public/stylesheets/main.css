@@ -1,0 +1,83 @@
+h1, h2, h3, h4, h5 { font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif; }
+body { font-family: Arial, Helvetica, Verdana, sans-serif; }
+#menu {
+    height: 40px;
+    color: #fff;
+    background-color: #523e35;
+    line-height: 40px;
+    padding-left: 15px;
+    font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+#menu a {
+    color: #fff;
+    text-decoration: none;
+}
+.green-rounded {
+    background: #AED93C;
+    background: -webkit-gradient(linear, 0% 100%, 0% 0%, color-stop(0, #a5cb44),
+                                color-stop(0.7, #adda3d), color-stop(0.96, #bee263), color-stop(1, #99EB79));
+    background: -moz-linear-gradient(center bottom, #a5cb44 0%,
+                                    #adda3d 70%, #bee263 96%, #99EB79 99%) repeat scroll 0 0;
+
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#a5cb44', endColorstr='#adda3d');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#a5cb44', endColorstr='#adda3d')";
+
+    font-size: 13px;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #aed93c;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 27px;
+    padding: 0 16px 4px;
+    text-shadow: 0 0 3px #79972a;
+    width: auto;
+    cursor: pointer;
+    margin: auto;
+    font-size: 13px;
+}
+.green-rounded a {
+    color: white;
+    text-decoration: none;
+    padding: 0px;
+}
+
+span.error {
+    padding: 3px 3px;
+    margin: 0;
+    font-size: 10px;
+    width: 65px;
+    display: block;
+}
+.header {    
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+    background-color: #fafafa;
+}
+.content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#errorExplanation.error h4 { color: #D12F19;}
+
+td.sub {
+    color: #999;
+    font-size: 12px;
+    padding-left: 30px;
+}
+/* New Questions page */
+.new-question-column {
+    float: left;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 1px solid #cccccc;
+}

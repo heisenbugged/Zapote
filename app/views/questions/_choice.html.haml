@@ -1,0 +1,4 @@
+= fields_for "multiple_choice_question[choices][]", choice do |c_form|
+  = c_form.text_field :question, :style => "width: 200px"
+  = c_form.select :correct, options_for_select([["Incorrect", "false"],["Correct", "true"]])
+  %br/

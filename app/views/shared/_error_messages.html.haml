@@ -1,0 +1,25 @@
+- if !target.respond_to?('count')
+  - if target[:item].errors.any?
+    #errorExplanation.error
+      %h4 #{pluralize(target[:item].errors.count, "error")} prohibited this record from being saved:
+      %ul
+        - target[:item].errors.full_messages.each do |msg|
+          %li= msg
+- else
+  - total_count=0
+  - target.each do |arr|
+    - total_count += arr[:item].errors.count if arr[:item]
+  - unless total_count == 0
+    #errorExplanation.error
+      %h4 #{pluralize(total_count, "error")} prohibited this record from being saved:
+      %ul
+        - target.each do |arr|
+          - if arr[:item]
+            - arr[:item].errors.each do |error|
+              -# Only display the error unless it was marked for exclusion.
+              - unless arr[:exclude].to_s == error.to_s
+                -# If the error is part of the base, we don't want to display the humanized error name before the actual error.
+                - unless error == :base
+                  %li= error.to_s.humanize + ' ' + arr[:item].errors.on(error)
+                - else
+                  %li= arr[:item].errors.on(error)

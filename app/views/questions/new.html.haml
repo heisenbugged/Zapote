@@ -1,0 +1,22 @@
+.header
+  %h2 New Question for #{@quiz.title}
+
+.content.clearfix
+  .new-question-column
+    = render '/questions/dictation_form'
+  .new-question-column
+    = render '/questions/multiple_choice_form'
+
+<br/><br/>
+.header
+  %h2 Existing Questions
+
+.content
+  %table
+    %tr
+      %th Title
+      %th Audio
+      %th Question Type
+    = render :partial => '/shared/question_row', :collection => @quiz.questions, :as => :question
+
+

@@ -1,0 +1,14 @@
+.header
+  %h2 #{@quiz.title } summary
+
+.content
+  %table
+    %tr
+      %th Title
+      %th Audio
+      %th Question Type
+    = render :partial => '/shared/question_row', :collection => @quiz.questions, :as => :question
+
+
+
+  .green-rounded= link_to "Add Questions", new_quiz_question_url(@quiz)

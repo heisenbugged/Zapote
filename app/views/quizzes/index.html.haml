@@ -1,0 +1,21 @@
+.header
+  %h2 Your Quizzes
+.content
+  %table
+    %tr
+      %th Title
+      %th Number of Questions
+      %th
+    - @quizzes.each do |quiz|
+      %tr
+        %td= quiz.title
+        %td= quiz.questions.count
+        %td= link_to "Show", quiz_url(quiz)
+
+
+  = simple_form_for Quiz.new do |f|
+    = f.input :title
+    = f.submit "Create New Quiz", :class => "green-rounded"
+
+-# link_to new_quiz_url do 
+  .green-rounded Create New Quiz
