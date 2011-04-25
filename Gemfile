@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'barista'
+gem 'fog'
 
 # Auth
 gem 'devise', '~> 1.1.5'

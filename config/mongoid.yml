@@ -1,3 +1,13 @@
+<%
+  mongohq_url = URI.parse(ENV['MONGOHQ_URL']) rescue nil
+  mongoid_host = mongohq_url.andand.host || ENV['MONGOID_HOST']
+  mongoid_port = mongohq_url.andand.port || ENV['MONGOID_PORT']
+  mongoid_username = mongohq_url.andand.user || ENV['MONGOID_USERNAME']
+  mongoid_password = mongohq_url.andand.password || ENV['MONGOID_PASSWORD']
+  mongoid_database = mongohq_url.andand.path.andand.gsub(/^\//, '') || ENV['MONGOID_DATABASE']
+%>
+
+
 defaults: &defaults
   host: localhost
   # slaves:
@@ -12,12 +22,11 @@ development:
 
 test:
   <<: *defaults
-  database: chayote_test
+  database: englishquiz_test
 
-# set these environment variables on your prod server
 production:
-  host: flame.mongohq.com
-  port: 27055
-  username: root
-  password: root
-  database: chayote
+  host: <%= mongoid_host %>
+  port: <%= mongoid_port %>
+  username: <%= mongoid_username %>
+  password: <%= mongoid_password %>
+  database: <%= mongoid_database %>
