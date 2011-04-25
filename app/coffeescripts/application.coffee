@@ -8,7 +8,7 @@ add_new_choice = () ->
                 <br />
            '''
     $("#choices").append(html)
-1
+
 $(document).ready ->
     $("#add_question").click ->
         add_new_choice()

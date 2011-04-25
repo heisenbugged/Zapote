@@ -6,7 +6,7 @@
 
 %h3 Multiple Choice Question
 = simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
-  = render "shared/error_messages", :target => [{:item => question}]
+  = render "shared/error_messages", :target => question
 
   = f.input :title
   %br/
