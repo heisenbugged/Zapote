@@ -1,5 +1,5 @@
 class MultipleChoiceQuestion < Question  
-  embeds_many :choices, as: :answerable
+  embeds_many :choices, :as => :answerable
   def type
     "Multiple Choice"
   end
