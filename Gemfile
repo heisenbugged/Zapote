@@ -24,6 +24,7 @@ gem 'carrierwave'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'barista'
 gem 'fog'
+gem  'andand'
 
 # Auth
 gem 'devise', '~> 1.1.5'
