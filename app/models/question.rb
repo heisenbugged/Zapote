@@ -3,7 +3,8 @@ class Question
   #Question type constants
   MULTIPLE_CHOICE = "MultipleChoiceQuestion"
   DICTATION = "DictationQuestion"
-  VALID_TYPES = [MULTIPLE_CHOICE, DICTATION]
+  TEXT = "TextQuestion"
+  VALID_TYPES = [MULTIPLE_CHOICE, DICTATION, TEXT]
   
   include Mongoid::Document
   include Mongoid::Timestamps

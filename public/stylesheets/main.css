@@ -81,3 +81,20 @@ td.sub {
     margin-right: 20px;
     border-right: 1px solid #cccccc;
 }
+
+
+/* Flutie default styles overrides **/
+span.error {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 1em;
+  padding: 0.8em; }
+
+span.error {
+  background: #FBE3E4;
+  border-color: #FBC2C4;
+  color: #D12F19; }
+
+span.error {
+  color: #D12F19; }

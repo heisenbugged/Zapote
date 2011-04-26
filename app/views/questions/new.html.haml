@@ -6,6 +6,8 @@
     = render '/questions/dictation_form'
   .new-question-column
     = render '/questions/multiple_choice_form'
+  .new-question-column
+    = render '/questions/text_form'    
 
 <br/><br/>
 .header
@@ -17,6 +19,7 @@
       %th Title
       %th Audio
       %th Question Type
+      %th
     = render :partial => '/shared/question_row', :collection => @quiz.questions, :as => :question
 
 

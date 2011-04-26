@@ -4,10 +4,12 @@
     %td= link_to "Open", question.audio.url, :target => "_blank"
   - else
     %td No Audio
-
     
   %td= question.type
+  %td= link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
+  
+
 - if question.class == MultipleChoiceQuestion
   - question.choices.each do |choice|
     %tr
-      %td.sub{:colspan => "3"} #{choice.question} | #{choice.correct} 
+      %td.sub{:colspan => "4"} #{choice.question} | #{choice.correct}

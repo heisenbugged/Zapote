@@ -1,20 +1,20 @@
-- if @question.class == DictationQuestion
+- if @question.class == TextQuestion
   - question = @question
 - else
-  - question = DictationQuestion.new
+  - question = TextQuestion.new
 
-  
-%h3 Dictation Question
+
+%h3 Freeform Question
 = simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
   = render "shared/error_messages", :target => question
 
-  
+
   = f.input :title, :label => "Question"
   %br/
   = f.input :answer
   %br/
   Audio: #{ f.file_field :audio }
-  
+
   %br/
   %br/
-  = f.submit "Create Dictation Question", :class => "green-rounded"
+  = f.submit "Create Freeform Question", :class => "green-rounded"

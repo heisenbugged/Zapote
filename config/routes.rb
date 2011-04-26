@@ -1,6 +1,7 @@
 EnglishQuiz::Application.routes.draw do
   resources :quizzes do
     resources :questions
+    resources :text_questions
     resources :dictation_questions
     resources :multiple_choice_questions    
   end

@@ -8,16 +8,16 @@
 = simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
   = render "shared/error_messages", :target => question
 
-  = f.input :title
+  = f.input :title, :label => "Question"
   %br/
 
   Audio: #{ f.file_field :audio }
   %br/
   
-  %h4 Questions
+  %h4 Answers
   #choices
     = render :partial => '/questions/choice', :collection => question.choices
-  %a#add_question Add Question
+  %a#add_question Add Answer
   -#= link_to_function "Add a choice" do |page|
     - page.insert_html :bottom, :choices, :partial => 'choice', :object => Choice.new
     
