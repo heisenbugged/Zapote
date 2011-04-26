@@ -8,6 +8,12 @@ class AudioUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   storage :fog
+
+  def cache_dir
+    "#{RAILS_ROOT}/tmp/uploads"
+  end
+
+
   # storage :s3
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
