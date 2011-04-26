@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
   inherit_resources
+  respond_to :html, :xml
   actions :index, :create, :edit, :update, :show
   def edit
     @quiz = Quiz.find(params[:id])
@@ -15,5 +16,8 @@ class QuizzesController < ApplicationController
   end
   def update
     update! { quizzes_path }
+  end
+  def take
+    @quiz = Quiz.find(params[:id])
   end
 end

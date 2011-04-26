@@ -6,6 +6,7 @@ EnglishQuiz::Application.routes.draw do
     resources :multiple_choice_questions    
   end
   root :to => "quizzes#index"
+  match '/quizzes/:id/take' => "quizzes#take", :as => :take
   match "/quizzes/:quiz_id/questions/new" => "patients#show"
   match "/images/uploads/*path" => "gridfs#serve"
   

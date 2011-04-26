@@ -1,0 +1,22 @@
+!!! XML
+%quiz
+  %title= @quiz.title
+  %questions
+    - @quiz.questions.each do |question|
+      - if question.class.to_s == Question::MULTIPLE_CHOICE
+        - type = (question.multiple_response?) ? "MultipleAnswerQuestion" : Question::MULTIPLE_CHOICE
+      - else
+        - type = question.class.to_s
+      %question{:type => type}
+        %title= question.title
+        %audio= question.audio.url
+        - if question.class.to_s == Question::DICTATION or question.class.to_s == Question::TEXT
+          %answer= question.answer
+          
+        - if question.class.to_s == Question::MULTIPLE_CHOICE
+          %choices
+            - question.choices.each do |choice|
+              %choice
+                %id= choice.id
+                %question= choice.question
+                %correct= choice.correct

@@ -14,6 +14,8 @@
           = link_to "Show", quiz_url(quiz)
           |
           = link_to "Edit", edit_quiz_url(quiz)
+          |
+          = link_to "Take Quiz", take_url(quiz)
 
 
   = simple_form_for Quiz.new do |f|

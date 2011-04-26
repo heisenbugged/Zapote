@@ -1,0 +1,14 @@
+.header
+  %h2 Taking Quiz #{ @quiz.title }
+  
+.content
+  #flashplayer{:style => "width: 720px; margin: auto;"}
+:javascript
+  $(document).ready(function() {    
+    $('#flashplayer').flash({
+        src: "/quiz.swf?QuizId=#{@quiz.id}",
+        width: "720",
+        height: "580",
+        allowscriptaccess: "always"
+    });
+  });
