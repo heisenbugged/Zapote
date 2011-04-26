@@ -10,7 +10,10 @@
       %tr
         %td= quiz.title
         %td= quiz.questions.count
-        %td= link_to "Show", quiz_url(quiz)
+        %td
+          = link_to "Show", quiz_url(quiz)
+          |
+          = link_to "Edit", edit_quiz_url(quiz)
 
 
   = simple_form_for Quiz.new do |f|

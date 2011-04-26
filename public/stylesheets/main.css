@@ -98,3 +98,9 @@ span.error {
 
 span.error {
   color: #D12F19; }
+
+
+textarea {
+    width: 297px;
+    height: 80px;
+}

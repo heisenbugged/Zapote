@@ -1,12 +1,15 @@
 %tr
-  %td= question.title
+  %td= (question_counter+1).to_s + ". " + question.title
   - unless question.audio.url.blank?
     %td= link_to "Open", question.audio.url, :target => "_blank"
   - else
     %td No Audio
     
   %td= question.type
-  %td= link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
+  %td
+    = link_to "edit", edit_quiz_question_path(question.quiz,question)
+    |
+    = link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
   
 
 - if question.class == MultipleChoiceQuestion

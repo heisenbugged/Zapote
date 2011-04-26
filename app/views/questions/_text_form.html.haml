@@ -6,10 +6,10 @@
 
 %h3 Freeform Question
 = simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
-  = render "shared/error_messages", :target => question
+  = render "/shared/error_messages", :target => question
 
 
-  = f.input :title, :label => "Question"
+  = f.input :title, :label => "Question", :as => :text
   %br/
   = f.input :answer
   %br/
@@ -17,4 +17,4 @@
 
   %br/
   %br/
-  = f.submit "Create Freeform Question", :class => "green-rounded"
+  = f.submit :class => "green-rounded"

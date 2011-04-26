@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   inherit_resources
-  actions :index, :create, :edit, :show
+  actions :index, :create, :edit, :update, :show
   def edit
     @quiz = Quiz.find(params[:id])
     
@@ -12,5 +12,8 @@ class QuizzesController < ApplicationController
   end
   def create
     create! { new_quiz_question_url(@quiz) }
+  end
+  def update
+    update! { quizzes_path }
   end
 end

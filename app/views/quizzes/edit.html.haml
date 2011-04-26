@@ -1,0 +1,9 @@
+.header
+  %h2 Editing #{@quiz.title }
+
+.content
+  = simple_form_for @quiz do |f|
+    = f.input :title
+    %br/
+    = f.submit :class => "green-rounded"
+

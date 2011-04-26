@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   inherit_resources
-  actions :delete, :destroy
+  actions :delete, :destroy, :edit
   
   include QuestionsHelper 
   def new
@@ -9,5 +9,8 @@ class QuestionsController < ApplicationController
   end
   def destroy
     destroy! {quiz_path(@question.quiz)}
+  end
+  def edit
+    edit! { @quiz = @question.quiz }
   end
 end

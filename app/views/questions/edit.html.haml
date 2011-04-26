@@ -1,0 +1,9 @@
+.header
+  %h2 Editing #{@question.title}
+
+.content
+  - if @question.class == TextQuestion
+    = render '/questions/text_form'
+    
+  - if @question.class == DictationQuestion
+    = render '/questions/dictation_form'

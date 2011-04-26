@@ -16,4 +16,15 @@ class DictationQuestionsController < ApplicationController
       render "questions/new"
     end
   end
+
+  def update
+    @question = DictationQuestion.find(params[:id])
+    if @question.update_attributes(params[:dictation_question])
+      flash[:notice] = 'Successfully updated question!'
+      redirect_to quiz_url(@question.quiz)
+    else
+      render "questions/edit"
+    end
+  end
+
 end
