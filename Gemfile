@@ -29,6 +29,9 @@ gem  'andand'
 # Auth
 gem 'devise', '~> 1.1.5'
 gem "cancan"
+# Devise dependencies
+gem 'hpricot'
+gem 'ruby_parser'
 
 # Test gems with generators (available in dev env)
 group :development, :test do

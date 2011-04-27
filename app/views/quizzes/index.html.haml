@@ -1,5 +1,5 @@
 .header
-  %h2 Your Quizzes
+  %h2 Manage Quizzes
 .content
   %table
     %tr
@@ -12,7 +12,7 @@
         %td= quiz.questions.count
         %td
           = link_to "Show", quiz_url(quiz)
-          |
+          |          
           = link_to "Edit", edit_quiz_url(quiz)
           |
           = link_to "Take Quiz", take_url(quiz)

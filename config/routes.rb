@@ -1,11 +1,13 @@
 EnglishQuiz::Application.routes.draw do
+  devise_for :users, :controllers =>{ :sessions => "users/sessions" }
+
   resources :quizzes do
     resources :questions
     resources :text_questions
     resources :dictation_questions
     resources :multiple_choice_questions    
   end
-  root :to => "quizzes#index"
+  root :to => "home#index"
   match '/quizzes/:id/take' => "quizzes#take", :as => :take
   match "/quizzes/:quiz_id/questions/new" => "patients#show"
   match "/images/uploads/*path" => "gridfs#serve"

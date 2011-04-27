@@ -13,6 +13,7 @@ body { font-family: Arial, Helvetica, Verdana, sans-serif; }
 #menu a {
     color: #fff;
     text-decoration: none;
+    margin-right: 30px;
 }
 .green-rounded {
     background: #AED93C;
@@ -58,6 +59,7 @@ span.error {
 }
 .header {    
     padding: 10px;
+    padding-left: 30px;
     margin-bottom: 10px;
     border-bottom: 1px solid #cccccc;
     border-top: 1px solid #cccccc;
@@ -74,6 +76,24 @@ td.sub {
     font-size: 12px;
     padding-left: 30px;
 }
+.link-button {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    padding: 5px;
+    background-color: #e8e8e8;
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+.link-button a {
+    color: #333;
+    font-family: 'Ubuntu', "Lucida Grande", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* New Questions page */
 .new-question-column {
     float: left;
@@ -84,19 +104,30 @@ td.sub {
 
 
 /* Flutie default styles overrides **/
-span.error {
+#main_notice.notice, #main_error.error {
+    border-color: white;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+span.error, #error_explanation {
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border: 1px solid #ddd;
   margin-bottom: 1em;
   padding: 0.8em; }
 
-span.error {
+span.error, #error_explanation {
   background: #FBE3E4;
   border-color: #FBC2C4;
   color: #D12F19; }
 
-span.error {
+#error_explanation h2 {
+    color: #D12F19;
+    font-size: 18px;
+}
+span.error, #error_explanation {
   color: #D12F19; }
 
 

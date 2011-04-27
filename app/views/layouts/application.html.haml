@@ -12,10 +12,17 @@
   %body
     #menu
       = link_to "Home", root_path
+      - if current_user
+        - if current_user.admin?
+          = link_to "Manage Quizzes", quizzes_url
+                
+        = link_to "Edit Profile", edit_user_registration_url(current_user)
+
+        = link_to "Log out", destroy_user_session_url(current_user)
     %div
       - if notice
-        .flash.notice= notice
+        #main_notice.notice= notice
       - if alert
-        .flash.alert= alert
+        #main_error.error= alert
 
     = yield
