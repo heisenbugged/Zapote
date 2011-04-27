@@ -1,7 +1,9 @@
 class TextQuestionsController < ApplicationController
   inherit_resources
-  load_and_authorize_resource
-  before_filter :authenticate_user!
+  
+  #load_and_authorize_resource
+  #before_filter :authenticate_user!
+
   nested_belongs_to :quiz
   actions :new, :create
 

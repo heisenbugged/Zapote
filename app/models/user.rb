@@ -6,8 +6,5 @@ class User
 
   field :admin, :type => Boolean, :default => false
   field :full_name
-
-  references_many :login_records
-
   validates_presence_of :full_name
 end
