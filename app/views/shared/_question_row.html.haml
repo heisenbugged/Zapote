@@ -7,7 +7,7 @@
     
   %td= question.type
   %td
-    = link_to "edit", edit_quiz_question_path(question.quiz,question)
+    = link_to "edit", edit_question_path(question)
     |
     = link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
   

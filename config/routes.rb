@@ -11,6 +11,10 @@ EnglishQuiz::Application.routes.draw do
     resources :statistics
   end
   root :to => "home#index"
+  
+  match '/questions/:id/edit' => "questions#edit", :as => :edit_question  
+  match "/multiple_choice_questions/:id" => "multiple_choice_questions#show", :as => :multiple_choice_question, :via => :get
+  match "/multiple_choice_questions/:id" => "multiple_choice_questions#update", :via => :put
   match 'statistics' => "statistics#create"
   match '/quizzes/:id/take' => "quizzes#take", :as => :take
   match "/quizzes/:quiz_id/questions/new" => "patients#show"

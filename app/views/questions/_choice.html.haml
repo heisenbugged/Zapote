@@ -1,4 +1,6 @@
 = fields_for "multiple_choice_question[choices][]", choice do |c_form|
-  = c_form.text_field :question, :style => "width: 200px"
-  = c_form.select :correct, options_for_select([["Incorrect", "false"],["Correct", "true"]])
+  = c_form.text_field :question, :style => "width: 200px", :index => nil
+  = c_form.select :correct, options_for_select([["Incorrect", "false"],["Correct", "true"]]), {}, { :index => nil }
+  - unless choice.new_record?
+    = c_form.hidden_field :id, :index => nil
   %br/

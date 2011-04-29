@@ -7,3 +7,6 @@
     
   - if @question.class == DictationQuestion
     = render '/questions/dictation_form'
+
+  - if @question.class == MultipleChoiceQuestion
+    = render '/questions/multiple_choice_form'

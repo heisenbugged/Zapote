@@ -4,8 +4,8 @@ class MultipleChoiceQuestionsController < ApplicationController
   #load_and_authorize_resource
   #before_filter :authenticate_user!
   
-  nested_belongs_to :quiz
-  actions :new, :create
+  belongs_to :quiz, :optional => true
+  actions :new, :create, :update
   
   def create
     @quiz = Quiz.find(params[:quiz_id])
@@ -19,5 +19,8 @@ class MultipleChoiceQuestionsController < ApplicationController
       @quiz = Quiz.find(params[:quiz_id])
       render "questions/new"
     end
+  end
+  def update
+    update! { quiz_path(@multiple_choice_question.quiz) }
   end
 end

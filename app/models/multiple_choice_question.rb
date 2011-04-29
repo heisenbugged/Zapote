@@ -10,8 +10,16 @@ class MultipleChoiceQuestion < Question
     correct > 1
   end
   def choices=(choices,hash=nil)
-    choices.each do |choice|
-      self.choices.build(choice)
+    persisted = self.persisted?
+    choices.each do |attributes|
+      if attributes[:id].blank?
+        self.choices.build(attributes)
+      else
+        choice = self.choices.detect {
+            |c| c.id.to_s == attributes[:id].to_s
+        }
+        choice.attributes = attributes
+      end
     end
   end  
 end

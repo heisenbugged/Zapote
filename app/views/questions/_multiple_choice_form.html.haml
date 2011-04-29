@@ -4,8 +4,16 @@
   - question = MultipleChoiceQuestion.new
   - question.choices.push(Choice.new)
 
+  
+-# if question is persisted then we don't need to call the nested controller
+- if question.persisted?
+  - arr = [question]
+- else
+  - arr = [@quiz, question]
+  
+
 %h3 Multiple Choice Question
-= simple_form_for [@quiz, question], :html => {:multipart => true} do |f|
+= simple_form_for arr, :html => {:multipart => true} do |f|
   = render "shared/error_messages", :target => question
 
   = f.input :title, :label => "Question"
