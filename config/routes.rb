@@ -7,7 +7,11 @@ EnglishQuiz::Application.routes.draw do
     resources :dictation_questions
     resources :multiple_choice_questions    
   end
+  resources :users do
+    resources :statistics
+  end
   root :to => "home#index"
+  match 'statistics' => "statistics#create"
   match '/quizzes/:id/take' => "quizzes#take", :as => :take
   match "/quizzes/:quiz_id/questions/new" => "patients#show"
   match "/images/uploads/*path" => "gridfs#serve"

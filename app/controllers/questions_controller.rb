@@ -3,8 +3,8 @@ class QuestionsController < ApplicationController
   load_and_authorize_resource
   before_filter :authenticate_user!
   actions :delete, :destroy, :edit
+  include QuestionsHelper
   
-  include QuestionsHelper 
   def new
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.new

@@ -25,6 +25,7 @@ gem 'jquery-rails', '>= 0.2.6'
 gem 'barista'
 gem 'fog'
 gem  'andand'
+gem "lazy_high_charts"
 
 # Auth
 gem 'devise', '~> 1.1.5'
@@ -61,9 +62,9 @@ group :test do
   #gem 'webmock', '~> 1.3.5'
   gem 'timecop', '~> 0.3.5'
   gem 'test_notifier', '~> 0.3.6'
+
   gem 'autotest', '~> 4.4.5'
 end
-
 # Special gems that get reloaded by spork on each run ( no auto require ) (Microoptimization)
 gem 'fabrication', '~> 0.9.0', :require => nil, :group => :test
 gem 'fabrication', '~> 0.9.0', :group => :development

@@ -1,0 +1,14 @@
+.header
+  %h2 Statistics for #{ @user.full_name }
+
+.content
+  .big-and-pretty
+    %p Total Questions Right: #{ @user.total_questions_right }
+    
+    %p Total Questions Wrong: #{ @user.total_questions_wrong }
+
+    %p Average score: #{ @user.average_score }%
+
+    %p Total Tests Taken: #{ @user.statistics.count }
+  %div{:style => "margin-left: -180px;"}
+    = high_chart("week_stats", @h)

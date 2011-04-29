@@ -1,0 +1,12 @@
+.header
+  %h2 Manage Users
+  
+.content
+  %table
+    %tr
+      %th Name
+      %th
+    - @users.each do |user|
+      %tr
+        %td= user.full_name
+        %td= link_to 'Statistics', user_statistics_url(user)
