@@ -1,10 +1,12 @@
 class QuizzesController < ApplicationController
   inherit_resources
-  #load_and_authorize_resource
+  #load_and_authorize_resource  
   before_filter :authenticate_user!
   respond_to :html, :xml
   actions :index, :create, :edit, :update, :show
-  
+  def index
+    index!
+  end
   def edit
     @quiz = Quiz.find(params[:id])
     

@@ -10,9 +10,14 @@ class Question
   include Mongoid::Timestamps
 
   validates_presence_of :title
-  
+
+  default_scope asc(:lowercase_title)
+  before_save :store_lowercase_title
   field :title
+  field :lowercase_title
   belongs_to :quiz
-  
   mount_uploader :audio, AudioUploader
+  def store_lowercase_title
+    self.lowercase_title = title.downcase
+  end
 end

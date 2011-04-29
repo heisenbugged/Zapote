@@ -10,9 +10,13 @@ class User
   validates_presence_of :full_name
 
   def average_score
-    percent_sum = 0
-    statistics.select {|statistic| percent_sum += statistic.percent }
-    (percent_sum/statistics.count).to_i
+    if(statistics.count > 0)
+      percent_sum = 0
+      statistics.select {|statistic| percent_sum += statistic.percent }
+      (percent_sum/statistics.count).to_i
+    else
+      100
+    end
   end
   def total_questions_answered
     answered = 0

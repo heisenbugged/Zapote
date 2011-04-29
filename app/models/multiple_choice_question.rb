@@ -13,5 +13,5 @@ class MultipleChoiceQuestion < Question
     choices.each do |choice|
       self.choices.build(choice)
     end
-  end
+  end  
 end
