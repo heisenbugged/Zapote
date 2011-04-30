@@ -1,23 +1,16 @@
 .header
   %h2 Manage Quizzes
+  
 .content
-  %table
+  %table.big
     %tr
       %th Title
       %th Number of Questions
-      %th
-    - @quizzes.each do |quiz|
-      %tr
-        %td= quiz.title
-        %td= quiz.questions.count
-        %td
-          = link_to "Show", quiz_url(quiz)
-          |          
-          = link_to "Edit", edit_quiz_url(quiz)
-          |
-          = link_to "Take Quiz", take_url(quiz)
+      %th Actions
+      %th Unique ID
 
-
+    = render :partial => '/shared/quiz_row', :collection => @quizzes, :as => :quiz
+    
   = simple_form_for Quiz.new do |f|
     = f.input :title
     = f.submit "Create New Quiz", :class => "green-rounded"

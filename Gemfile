@@ -26,6 +26,8 @@ gem 'barista'
 gem 'fog'
 gem  'andand'
 gem "lazy_high_charts"
+gem "apotomo"
+gem "kaminari"
 
 # Auth
 gem 'devise', '~> 1.1.5'

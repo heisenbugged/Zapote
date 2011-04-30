@@ -10,6 +10,7 @@
       %question{:type => type}
         %title= question.title
         %audio= question.audio.url
+        %image= question.image.url
         - if question.class.to_s == Question::DICTATION or question.class.to_s == Question::TEXT
           %answer= question.answer
           

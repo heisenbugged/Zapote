@@ -17,6 +17,7 @@ class Question
   field :lowercase_title
   belongs_to :quiz
   mount_uploader :audio, AudioUploader
+  mount_uploader :image, ImageUploader
   def store_lowercase_title
     self.lowercase_title = title.downcase
   end

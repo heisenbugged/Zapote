@@ -3,14 +3,11 @@
 
 .content
   %h2 All Quizzes
-  %table
+  %table.big
     %tr
       %th Title
       %th Number of Questions
-      %th
-    - Quiz.all.each do |quiz|
-      %tr
-        %td= quiz.title
-        %td= quiz.questions.count
-        %td
-          = link_to "Take Quiz", take_url(quiz)
+      %th Actions
+      %th Unique ID
+      
+    = render :partial => '/shared/quiz_row', :collection => Quiz.all, :as => :quiz

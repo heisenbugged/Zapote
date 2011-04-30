@@ -12,9 +12,8 @@
   = f.input :title, :label => "Question", :as => :text
   %br/
   = f.input :answer
-  %br/
-  Audio: #{ f.file_field :audio }
-
-  %br/
-  %br/
+  %br/  
+  %p Audio: #{ f.file_field :audio }  
+  %p Image: #{ f.file_field :image }
+  
   = f.submit :class => "green-rounded"

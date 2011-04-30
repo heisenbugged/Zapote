@@ -13,8 +13,6 @@
   %br/
   = f.input :answer
   %br/
-  Audio: #{ f.file_field :audio }
-  
-  %br/
-  %br/
+  %p Audio: #{ f.file_field :audio }
+  %p Image: #{ f.file_field :image }
   = f.submit :class => "green-rounded"

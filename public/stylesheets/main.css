@@ -71,11 +71,7 @@ span.error {
 }
 #errorExplanation.error h4 { color: #D12F19;}
 
-td.sub {
-    color: #999;
-    font-size: 12px;
-    padding-left: 30px;
-}
+
 .link-button {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -178,4 +174,21 @@ textarea {
 .big-and-pretty {
     font-size: 18px;
     font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif;
+}
+table.big td {
+    height: 28px;
+}
+table.big td.title {
+    font-size: 16px;
+    padding-left: 10px;
+    font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif;    
+}
+table.big td.sub, table.big td.last_sub {
+    height: 20px;
+    color: #999;
+    font-size: 12px;
+    padding-left: 30px;
+}
+table.big td.last_sub {
+    border-bottom-color: #eeeeee;
 }
