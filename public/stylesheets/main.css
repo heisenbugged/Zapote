@@ -183,6 +183,9 @@ table.big td.title {
     padding-left: 10px;
     font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif;    
 }
+tr.highlight {
+    background-color: #F1FFCC;
+}
 table.big td.sub, table.big td.last_sub {
     height: 20px;
     color: #999;

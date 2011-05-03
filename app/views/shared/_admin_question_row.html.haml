@@ -1,0 +1,25 @@
+%tr
+  %td{:style => "width: 40px; padding: 0px;"}= check_box_tag "assignees[]", question.id
+  %td.title= (question_counter+1).to_s + ". " + question.title
+  - unless question.audio.url.blank?
+    %td= link_to "Open", question.audio.url, :target => "_blank"
+  - else
+    %td No Audio
+  - unless question.image.url.blank?
+    %td= link_to "Open", question.image.url, :target => "_blank"
+  - else
+    %td No Image
+    
+  %td= question.type
+  %td
+    = link_to "edit", edit_question_path(question)
+    |
+    = link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
+  
+
+- if question.class == MultipleChoiceQuestion
+  - question.choices.each_with_index do |choice, index|
+    - sub_class = ((index+1) == question.choices.count) ? 'sub' : 'last_sub'
+    %tr
+      %td{:class => sub_class}
+      %td{:class => sub_class, :colspan => "5"} #{choice.question} | #{choice.correct}

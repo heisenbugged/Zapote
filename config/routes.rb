@@ -11,7 +11,7 @@ EnglishQuiz::Application.routes.draw do
     resources :statistics
   end
   root :to => "home#index"
-  
+  match '/quizzes/:id/reassign' => "quizzes#reassign", :as => :reassign_question
   match '/questions/:id/edit' => "questions#edit", :as => :edit_question  
   match "/multiple_choice_questions/:id" => "multiple_choice_questions#show", :as => :multiple_choice_question, :via => :get
   match "/multiple_choice_questions/:id" => "multiple_choice_questions#update", :via => :put

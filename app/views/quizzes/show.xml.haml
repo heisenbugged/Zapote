@@ -1,6 +1,7 @@
 !!! XML
 %quiz
   %title= @quiz.title
+  %id= @quiz.id
   %questions
     - @quiz.questions.each do |question|
       - if question.class.to_s == Question::MULTIPLE_CHOICE

@@ -12,3 +12,19 @@
     %p Total Tests Taken: #{ @user.statistics.count }
   %div{:style => "margin-left: -180px;"}
     = high_chart("week_stats", @h)
+
+.header
+  %h2 All Statistics
+  
+.content
+  %table
+    %tr
+      %th Quiz Name
+      %th Score
+      %th Date
+
+    - @user.statistics.each do |statistic|
+      %tr
+        %td= statistic.quiz.title
+        %td= statistic.percent
+        %td= readable_date(statistic.created_at.to_date)

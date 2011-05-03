@@ -12,6 +12,7 @@ class Quiz
   field :lowercase_title
   #integer unique identifier
   field :number, :type => Integer
+  index :number
 
   has_many :questions  
 
