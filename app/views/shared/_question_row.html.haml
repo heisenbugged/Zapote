@@ -1,12 +1,14 @@
 %tr
   %td.title= (question_counter+1).to_s + ". " + question.title
-  - unless question.audio.url.blank?
+  %td
+  %td
+  -# unless question.audio.url.blank?
     %td= link_to "Open", question.audio.url, :target => "_blank"
-  - else
+  -# else
     %td No Audio
-  - unless question.image.url.blank?
+  -# unless question.image.url.blank?
     %td= link_to "Open", question.image.url, :target => "_blank"
-  - else
+  -# else
     %td No Image
     
   %td= question.type
