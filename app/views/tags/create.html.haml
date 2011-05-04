@@ -1,0 +1,4 @@
+= link_to tag_path(@tag), :method => :delete, :remote => true, :class => "tag_link" do
+  .rounded-tag{:id => "tag_#{@tag.id}"}
+    = @tag.name
+    .delete-link x

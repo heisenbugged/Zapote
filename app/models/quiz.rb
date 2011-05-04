@@ -14,7 +14,8 @@ class Quiz
   field :number, :type => Integer
   index :number
 
-  has_many :questions  
+  has_many :questions
+  has_many :tags, :as => :taggable
 
   def store_lowercase_title
     self.lowercase_title = title.downcase
@@ -27,6 +28,16 @@ class Quiz
   def generate_number
     last_quiz_number = Quiz.max(:number).to_i
     self.number = last_quiz_number ? (last_quiz_number + 1) : 1
+  end
+  def has_tag?(name)
+    tags.where(:name => name).count > 0
+  end
+  def self.tag_search(search)
+    if search
+      Quiz.all.collect { |quiz| quiz if quiz.has_tag?(search) }.compact      
+    else
+      scoped
+    end
   end
 
 end

@@ -6,4 +6,62 @@
     = f.input :title
     %br/
     = f.submit :class => "green-rounded"
+    
+  %br/
+  %h4 Tags:
+  .tag-container
+    #tags
+      - @quiz.tags.each do |tag|
+        = link_to tag_path(tag), :method => :delete, :remote => true, :class => "tag_link" do
+          .rounded-tag{:id => "tag_#{tag.id}"}
+            = tag.name
+            .delete-link x
+    .clear
 
+  %br/
+  %h4 New Tag:
+  = simple_form_for @tag, :html => {:class => "hello"}, :remote => true do |f|
+    = f.input :name
+    = hidden_field_tag :taggable_id, @quiz.id
+    = hidden_field_tag :taggable_type, @quiz.class.to_s
+    %br/
+    = f.submit "Add Tag", :class => "green-rounded"
+
+:javascript
+  $('#new_tag').bind('ajax:success', function(evt, data, status, xhr) {
+    tag_html = $(xhr.responseText);
+    tag_html.hide();
+    $('#tags').append(tag_html);
+    tag_html.fadeIn();
+    $('#tag_name').val("");
+
+    tag_html.mouseover(function() {
+      // Show delete icon
+      $(this).find('.delete-link').show();
+    });
+
+    tag_html.mouseout(function() {
+      $(this).find('.delete-link').hide();
+    });
+
+    $(tag_html).bind('ajax:success', function(evt, data, status, xhr) {    
+      $('#'+xhr.responseText).fadeOut();
+    });
+
+  });
+
+  $('a.tag_link').bind('ajax:success', function(evt, data, status, xhr) {    
+    $('#'+xhr.responseText).fadeOut();
+  });
+
+  $(document).ready(function(){
+    $('.rounded-tag').mouseover(function() {
+      // Show delete icon
+      $(this).find('.delete-link').show();
+    });
+
+    $('.rounded-tag').mouseout(function() {
+      $(this).find('.delete-link').hide();
+    });
+
+  });

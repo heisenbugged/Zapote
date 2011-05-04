@@ -2,7 +2,7 @@
   %h2 Manage Quizzes
   
 .content
-  %table.big
+  %table.big{:style => "float: left; width: 800px;"}
     %tr
       %th Title
       %th Number of Questions
@@ -10,10 +10,17 @@
       %th Unique ID
 
     = render :partial => '/shared/quiz_row', :collection => @quizzes, :as => :quiz
+  .tag-cloud
+    %h4 Tag Cloud
+    .tag-container
+      - @tags.each do |tag_array|
+        = link_to quiz_tag_path(tag_array[0]) do
+          .rounded-tag= tag_array[0]
+      .clear
+
+  .clear
     
   = simple_form_for Quiz.new do |f|
     = f.input :title
     = f.submit "Create New Quiz", :class => "green-rounded"
 
--# link_to new_quiz_url do 
-  .green-rounded Create New Quiz

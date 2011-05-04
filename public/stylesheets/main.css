@@ -1,5 +1,6 @@
 h1, h2, h3, h4, h5 { font-family: Ubuntu, Arial, Helvetica, Verdana, sans-serif; }
 body { font-family: Arial, Helvetica, Verdana, sans-serif; }
+.clear { clear: both; }
 #menu {
     height: 40px;
     color: #fff;
@@ -194,4 +195,59 @@ table.big td.sub, table.big td.last_sub {
 }
 table.big td.last_sub {
     border-bottom-color: #eeeeee;
+}
+
+/** tag styles **/
+.tag-cloud {
+    float: left; margin-left: 20px;
+}
+.tag-container {
+    width: 300px;
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 8px;
+        
+}
+.tag-container a {
+   text-decoration: none;
+}
+.rounded-tag {
+    display: inline;
+    
+    margin-left: 5px; 
+    background: #f0dac2;
+    padding: 2px 10px;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #955d1a;
+    border: 1px solid #dab081;
+}
+div.rounded-tag {
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+    padding-right: 12px;
+}
+.rounded-tag .delete-link {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background-color: #955d1a;
+    font-size: 10px;
+    color: white;
+    line-height: 9px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 5px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+
+    display: none;
+
 }

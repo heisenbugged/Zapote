@@ -5,13 +5,15 @@ class QuizzesController < ApplicationController
   respond_to :html, :xml
   actions :index, :create, :edit, :update, :show
   def index
-    index!
+    @tags = Tag.where(:type => :quiz).group_by(&:name)
+    @quizzes = Quiz.tag_search(params[:tag])
+    #index!
   end
   def edit
     @quiz = Quiz.find(params[:id])
-    
+    @tag = Tag.new
     @question = MultipleChoiceQuestion.new
-
+    
     4.times { @question.choices.new }
     #@new_quiz = Quiz.new
     #@new_quiz.questions =MultipleChoiceQuestion.new]
