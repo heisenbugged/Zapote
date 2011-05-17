@@ -1,5 +1,5 @@
 %tr
-  %td{:style => "width: 40px; padding: 0px;"}= check_box_tag "assignees[]", question.id
+  %td{:style => "width: 40px; padding: 0px;"}= check_box_tag "assignees[]", question.id if current_user.admin?
   %td.title= (question_counter+1).to_s + ". " + question.title
   - unless question.audio.url.blank?
     %td= link_to "Open", question.audio.url, :target => "_blank"
@@ -12,9 +12,10 @@
     
   %td= question.type
   %td
-    = link_to "edit", edit_question_path(question)
-    |
-    = link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
+    - if current_user.admin?
+      = link_to "edit", edit_question_path(question)
+      |
+      = link_to "delete", quiz_question_path(question.quiz,question), :method => :delete
   
 
 - if question.class == MultipleChoiceQuestion

@@ -3,9 +3,10 @@
 
 .content
   = simple_form_for @quiz, :url => :reassign_question do |f|
-    Re-assign questions to 
-    = text_field_tag :receiving_id, '' , :style => "width: 50px;"
-    = f.submit "Reassign"
+    - if current_user.admin?
+      Re-assign questions to
+      = text_field_tag :receiving_id, '' , :style => "width: 50px;"
+      = f.submit "Reassign"
     %table#questions-table.big
       %thead
         %tr
@@ -19,8 +20,9 @@
         = render :partial => '/shared/admin_question_row', :collection => @quiz.questions, :as => :question
 
 
-
-  .green-rounded= link_to "Add Questions", new_quiz_question_url(@quiz)
+  - if current_user.admin?
+    .green-rounded= link_to "Add Questions", new_quiz_question_url(@quiz)
+  .green-rounded= link_to "Take Quiz", take_url(@quiz)
 
 :javascript
   $('#questions-table input').click(function() {
