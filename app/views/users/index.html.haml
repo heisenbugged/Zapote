@@ -4,9 +4,11 @@
 .content
   %table
     %tr
+      %th Email
       %th Name
       %th
     - @users.each do |user|
       %tr
+        %th= user.email
         %td= user.full_name
         %td= link_to 'Statistics', user_statistics_url(user)
