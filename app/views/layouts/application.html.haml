@@ -14,9 +14,9 @@
       <link  href="http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
   %body
     #menu
-      = link_to "Home", root_path
-      = link_to "My Statistics", user_statistics_url(current_user)
+      = link_to "Home", root_path      
       - if current_user
+        = link_to "My Statistics", user_statistics_url(current_user)
         - if current_user.admin?
           = link_to "Manage Users", users_url
           = link_to "Manage Quizzes", quizzes_url
