@@ -5,3 +5,6 @@ tmp/
 public/uploads/*
 .DS_Store
 .idea/*
+.rvmrc
+
+log.txt
