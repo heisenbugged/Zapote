@@ -5,6 +5,7 @@ class Ability
     can :take, Quiz
     can :show, Quiz
     if user
+      can :manage, Statistic
       can :manage, :all if user.admin?
     end
   end
