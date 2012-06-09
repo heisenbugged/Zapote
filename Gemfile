@@ -28,6 +28,7 @@ gem  'andand'
 gem "lazy_high_charts"
 gem "apotomo"
 gem "kaminari"
+gem "watu_table_builder", :require => "table_builder"
 
 # Auth
 gem 'devise', '~> 1.1.5'

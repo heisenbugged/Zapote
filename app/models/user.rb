@@ -7,6 +7,7 @@ class User
   field :admin, :type => Boolean, :default => false
   field :full_name
   has_many :statistics
+  has_many :practice_entries
   validates_presence_of :full_name
 
   def average_score

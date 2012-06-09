@@ -201,6 +201,7 @@ GEM
     tzinfo (0.3.26)
     warden (1.0.3)
       rack (>= 1.0.0)
+    watu_table_builder (0.3.0)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -251,4 +252,5 @@ DEPENDENCIES
   test_notifier (~> 0.3.6)
   thin (~> 1.2.7)
   timecop (~> 0.3.5)
+  watu_table_builder
   webrat (~> 0.7.2)

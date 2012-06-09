@@ -1,0 +1,53 @@
+.header
+  %h2 Practice Entries for #{ @user.full_name }
+  
+.content
+  #hours-completed.clearfix
+    #holder
+    %h2 #{ @total_hours } out of <span class="light">360 hours</span> completed this year.
+  
+  #calendar
+    %h2#month
+      = link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m")
+      %span=h @date.strftime("%B %Y")
+      = link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m")
+    
+    - calendar_for @entries, :year => @date.year, :month => @date.month do |calendar|
+      = calendar.head 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+      - calendar.day(:day_method => :date) do |date, entries|
+        %span= date.day.to_s
+        %p{:class => (entries.length > 0) ? "selected" : ""}
+          = hours_from_entries entries
+    
+    %p 
+      .selected-square
+      Days in which you have practiced
+      
+      .unselected-square
+      Days you haven't practiced
+      
+
+.header
+  %h2 Add New Practice Entry
+  %br/
+  = simple_form_for PracticeEntry.new do |f|
+    = f.input :date, :as => :date
+    %br/
+    = f.input :hours
+    %br/
+    = f.submit "Add Practice Entry", :class => "green-rounded"
+    
+:javascript
+  $(function() {
+    var hrs = #{@total_hours};
+    var missing = 360 - hrs;
+    
+    // if hrs is 0, then no circle will display.
+    // so we set the value to 1 to render the circle.
+    if(hrs == 0) hrs = 1;
+    
+    var r = 35;    
+    var paper = Raphael("holder");
+    var pie = paper.piechart(r, r, r, [hrs, missing], { colors: ["#ddd", "#809D3E"] });  
+    pie.rotate(270, r, r);
+  });

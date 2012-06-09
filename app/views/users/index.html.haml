@@ -11,4 +11,7 @@
       %tr
         %th= user.email
         %td= user.full_name
-        %td= link_to 'Statistics', user_statistics_url(user)
+        %td
+          = link_to 'Statistics', user_statistics_url(user)
+          |
+          = link_to 'Practice Entries', user_practice_entries_url(user)

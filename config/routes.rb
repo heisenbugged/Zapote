@@ -7,10 +7,14 @@ EnglishQuiz::Application.routes.draw do
     resources :dictation_questions
     resources :multiple_choice_questions    
   end
+  
   resources :users do
     resources :statistics
+    resources :practice_entries
   end
+  
   resources :tags
+  
   root :to => "home#index"
   match '/quizzes/tags/:tag' => "quizzes#index", :as => :quiz_tag
   match '/quizzes/:id/reassign' => "quizzes#reassign", :as => :reassign_question
@@ -21,6 +25,8 @@ EnglishQuiz::Application.routes.draw do
   match '/quizzes/:id/take' => "quizzes#take", :as => :take
   match "/quizzes/:quiz_id/questions/new" => "patients#show"
   match "/images/uploads/*path" => "gridfs#serve"
+  
+  resources :practice_entries
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
